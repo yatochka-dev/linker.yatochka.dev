@@ -3,17 +3,17 @@
 
 
     export let data: PageData;
-    const email = data.user.email;
-    const title = data.user.title;
-    const description = data.user.description;
-    const links = data.links;
+    const email = "Hello"
+    const title = "Hello"
+    const description = "Hello"
+    const links = "Hello"
 
 </script>
 
 <div class="w-full flex justify-center">
     <div class="flex justify-center flex-col gap-2 pb-10 max-w-[500px]  lg:max-w-[650px] h-links-page">
 
-        {#if email === data?.session?.user?.email}
+        {#if email === "Hello"}
             <div class="flex px-6 w-full justify-center">
                 <p class="text-sm mb-10 text-center">This is your page, you can <a href="/profile"
                                                                                    class="underline">edit</a> it.</p>

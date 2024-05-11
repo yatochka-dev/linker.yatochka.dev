@@ -1,35 +1,35 @@
 // restrict for non-authenticated users
 
-import {fail, redirect} from '@sveltejs/kit';
+import {fail} from '@sveltejs/kit';
 import type {PageServerLoad} from './$types';
-import {prisma} from "$lib/server/prisma";
+// import {prisma} from "$lib/server/prisma";
 import type {Actions} from "./$types";
 
 
-export const load: PageServerLoad = async (event) => {
-    const session = await event.locals.auth();
-    if (!session?.user) throw redirect(303, '/auth/signin');
-
-    const user = await prisma.user.findUnique({
-        where: {
-            email: session.user.email,
-        },
-
-
-    })
-
-    const links = await prisma.link.findMany({
-        where: {
-            userId: user.id
-        }
-    })
-
-    return {
-        user: {
-            ...user,
-            links: links
-        }
-    };
+export const load: PageServerLoad = async () => {
+    // const session = await event.locals.auth();
+    // if (!session?.user) throw redirect(303, '/auth/signin');
+    //
+    // const user = await prisma.user.findUnique({
+    //     where: {
+    //         email: session.user.email,
+    //     },
+    //
+    //
+    // })
+    //
+    // const links = await prisma.link.findMany({
+    //     where: {
+    //         userId: user.id
+    //     }
+    // })
+    //
+    // return {
+    //     user: {
+    //         ...user,
+    //         links: links
+    //     }
+    // };
 };
 
 export const actions = {
@@ -39,10 +39,10 @@ export const actions = {
             message: "id is required"
         });
 
-        await prisma.link.delete({
-            where: {
-                id
-            }
-        });
+        // await prisma.link.delete({
+        //     where: {
+        //         id
+        //     }
+        // });
     }
 } satisfies Actions;

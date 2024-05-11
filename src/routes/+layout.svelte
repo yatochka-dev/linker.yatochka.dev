@@ -20,17 +20,16 @@
     // Floating UI for Popups
     import {computePosition, autoUpdate, flip, shift, offset, arrow} from '@floating-ui/dom';
     import {storePopup} from '@skeletonlabs/skeleton';
-    import {page} from "$app/stores"
-    import {SignIn} from "@auth/sveltekit/components"
     import {getDefaultAvatar} from "$lib/utils/avatar";
 
     import {initializeStores, Modal} from '@skeletonlabs/skeleton';
+    import type {PageData} from "./$types";
 
     initializeStores();
     storePopup.set({computePosition, autoUpdate, flip, shift, offset, arrow});
 
 
-    $: session = $page.data.session;
+    export let data: PageData
 
 </script>
 
@@ -46,24 +45,19 @@
                 </a>
             </svelte:fragment>
             <svelte:fragment slot="trail">
-                {#if session}
+                {#if data.user}
                     <!--                     <a href="/profile" class="btn variant-filled-primary">My Profile</a>-->
                     <!--                    <SignOut class="btn variant-glass-surface"/>-->
-                    <a href="/profile">
-                        <img src={
-                        session?.user?.image
-                            ? session.user.image
-                            : getDefaultAvatar(120)
-                    } alt="${session?.user?.name} profile"
-                             class="size-14 rounded-full  shadow-none hover:drop-shadow-md shadow-primary-200 transition-all duration-100">
-                    </a>
+                    <div class="btn">Logged in</div>
                 {:else}
-                    <SignIn class="btn variant-ghost-secondary pl-3"/>
+                    <a href="/register" class="btn variant-ghost-secondary btn-sm ">Register</a>
+                    <a href="/login" class="btn variant-ghost-tertiary btn-sm ">Login</a>
                 {/if}
 
             </svelte:fragment>
         </AppBar>
     </svelte:fragment>
     <!-- Page Route Content -->
+    {JSON.stringify(data)}
     <slot/>
 </AppShell>
