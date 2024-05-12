@@ -84,7 +84,7 @@ model User {
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
   links               Link[]
-  pagePath            String     @unique
+  pagePath            String     @unique @default(cuid())
   linkPageTitle       String? // @todo edit settings page zod schema
   linkPageDescription String?
   linkPageDesign      PageDesign @default(BLACKWHITE)
