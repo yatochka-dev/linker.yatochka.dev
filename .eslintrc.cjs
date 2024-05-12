@@ -2,16 +2,15 @@
 module.exports = {
 	root: true,
 	rules: {
-		"no-unused-vars": "off",
+		'no-unused-vars': 'off',
 		// imports
-		"import/no-unresolved": "off",
-		"import/no-mutable-exports": "off",
-		"import/no-extraneous-dependencies": "off",
-		"import/prefer-default-export": "off",
-		"import/no-named-as-default": "off",
-		"import/no-named-as-default-member": "off",
+		'import/no-unresolved': 'off',
+		'import/no-mutable-exports': 'off',
+		'import/no-extraneous-dependencies': 'off',
+		'import/prefer-default-export': 'off',
+		'import/no-named-as-default': 'off',
+		'import/no-named-as-default-member': 'off'
 		// typescript
-		
 	},
 	extends: [
 		'eslint:recommended',

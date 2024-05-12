@@ -1,48 +1,75 @@
 // restrict for non-authenticated users
-
-import {fail} from '@sveltejs/kit';
-import type {PageServerLoad} from './$types';
+//
+// import {fail, redirect} from '@sveltejs/kit';
+// import type {PageServerLoad} from './$types';
 // import {prisma} from "$lib/server/prisma";
-import type {Actions} from "./$types";
+// import type {Actions} from "./$types";
+//
+//
+// export const load: PageServerLoad = async (event) => {
+//     const session = await event.locals.auth();
+//     if (!session?.user) throw redirect(303, '/auth/signin');
+//
+//     const user = await prisma.user.findUnique({
+//         where: {
+//             email: session.user.email,
+//         },
+//
+//
+//     })
+//
+//     const links = await prisma.link.findMany({
+//         where: {
+//             userId: user.id
+//         }
+//     })
+//
+//     return {
+//         user: {
+//             ...user,
+//             links: links
+//         }
+//     };
+// };
+//
+// export const actions = {
+//     deleteLink: async (event) => {
+//         const id = event.url.searchParams.get("id");
+//         if (!id) return fail(400, {
+//             message: "id is required"
+//         });
+//
+//         await prisma.link.delete({
+//             where: {
+//                 id
+//             }
+//         });
+//     }
+// } satisfies Actions;
 
+import type { PageServerLoad } from './$types';
+import { prisma } from '$lib/server/prisma';
 
-export const load: PageServerLoad = async () => {
-    // const session = await event.locals.auth();
-    // if (!session?.user) throw redirect(303, '/auth/signin');
-    //
-    // const user = await prisma.user.findUnique({
-    //     where: {
-    //         email: session.user.email,
-    //     },
-    //
-    //
-    // })
-    //
-    // const links = await prisma.link.findMany({
-    //     where: {
-    //         userId: user.id
-    //     }
-    // })
-    //
-    // return {
-    //     user: {
-    //         ...user,
-    //         links: links
-    //     }
-    // };
+// export const config = {}
+
+export const load: PageServerLoad = async (event) => {
+	const session = await event.locals.auth();
+	if (!session?.user) {
+		return {
+			status: 303,
+			headers: {
+				location: '/auth/signin'
+			}
+		};
+	}
+
+	const user = await prisma.user.findUnique({
+		where: {
+			email: session.user.email
+		}
+	});
+
+	return {
+		usersPageURL: event.url.protocol + '//' + event.url.host + '/d/' + user.pagePath
+	};
 };
-
-export const actions = {
-    deleteLink: async (event) => {
-        const id = event.url.searchParams.get("id");
-        if (!id) return fail(400, {
-            message: "id is required"
-        });
-
-        // await prisma.link.delete({
-        //     where: {
-        //         id
-        //     }
-        // });
-    }
-} satisfies Actions;

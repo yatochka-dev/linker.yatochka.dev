@@ -1,47 +1,28 @@
 <script lang="ts">
-   	import { popup, type PopupSettings } from '@skeletonlabs/skeleton';
+	import { enhance } from '$app/forms';
+	import { type Link } from '@prisma/client';
 
-    import type {Link} from "@prisma/client";
-    import {Avatar} from "@skeletonlabs/skeleton";
+	export let link: Link;
+	let files: FileList;
 
-    //  Props
-    export let link: Link;
+	function c(fil: FileList) {
+		console.log('heelo', fil);
+	}
 
-
-    let confirmDelete = false;
-
-    const popupClick: PopupSettings = {
-        event: 'click',
-        target: 'popupClick',
-        placement: 'bottom',
-        	closeQuery: '#will-close'
-
-    };
-
-
+	$: c(files);
 </script>
 
-<div class="flex flex-row gap-4 border-secondary-50 border-2 rounded-lg p-3">
-    <div class="flex items-center gap-2">
-        <Avatar src={link.iconURL ?? ""} width="w-7"/> {link.label}
-    </div>
-    <div class="flex-grow"></div>
-    <div class="btn-group variant-ghost-secondary">
-        <a href={link.url} target="_blank" class="btn-sm btn btn-primary">Visit</a>
-        <a href={`profile/edit-link/${link.id}`} class="btn btn-secondary">Edit</a>
-    </div>
-    <!--    <form method="POST" action="?/deleteLink&id={link.id}">-->
-    <button class="btn variant-filled-error" use:popup={popupClick} >Delete</button>
-
-    <div class="card p-4 variant-filled-surface" data-popup="popupClick">
-        <p class="mb-2">Are you sure you want to delete this link?</p>
-            <form method="POST" action="?/deleteLink&id={link.id}" class="flex items-center justify-center gap-4">
-            <button class="btn variant-filled-error" type="submit">Yes</button>
-            <button class="btn variant-filled-secondary" id="will-close" type="button">No</button>
-            </form>
-
-        <div class="arrow variant-filled-primary"/>
-    </div>
-
-    <!--    </form>-->
-</div>
+<form class="p-4 w-full rounded-sm flex" method="POST" use:enhance>
+	<div class="w-[75%] flex items-center gap-2">
+		<input class="input" type="text" bind:value={link.label} name="label" />
+		- <input class="input" type="url" bind:value={link.url} name="url" />
+	</div>
+	<div class="flex-grow"></div>
+	<input type="hidden" bind:value={link.id} name="id" />
+	<div class="flex gap-2">
+		<button class="btn variant-filled-secondary" type="submit" formaction="?/updateLink"
+			>Update</button
+		>
+		<button class="btn variant-filled-error" type="submit" formaction="?/deleteLink">Remove</button>
+	</div>
+</form>
