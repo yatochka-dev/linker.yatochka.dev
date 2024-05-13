@@ -37,11 +37,23 @@
 </script>
 
 <svelte:head>
-    <meta property="og:title" content="Linker"/>
+    <title>Linker</title>
+<meta name="description" content="Linker is a simple and easy to use app that allows you to create your own custom link pages.">
 
-    <meta property="og:description"
-          content="Linker is a simple and easy to use app that allows you to create your own custom link pages."/>
-    <meta property="og:image" content="https://linker-yatochka-dev.vercel.app/landing.png"/>
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://linker-yatochka-dev.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linker">
+<meta property="og:description" content="Linker is a simple and easy to use app that allows you to create your own custom link pages.">
+<meta property="og:image" content="https://linker-yatochka-dev.vercel.app/landing.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="linker-yatochka-dev.vercel.app">
+<meta property="twitter:url" content="https://linker-yatochka-dev.vercel.app/">
+<meta name="twitter:title" content="Linker">
+<meta name="twitter:description" content="Linker is a simple and easy to use app that allows you to create your own custom link pages.">
+<meta name="twitter:image" content="https://linker-yatochka-dev.vercel.app/landing.png">
 </svelte:head>
 
 <!-- App Shell -->
