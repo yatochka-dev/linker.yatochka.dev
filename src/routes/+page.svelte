@@ -62,7 +62,6 @@
     }
 </script>
 
-
 <div class="flex pt-36 flex-col px-10 lg:pt-0 lg:flex-row h-full w-full items-center pb-32 mx-auto max-w-screen-xl gap-20">
     <div class="flex flex-col gap-4 container max-w-screen-sm">
         <h1 class="h2 lg:h1">
@@ -87,7 +86,7 @@
             <div
 
                     use:motion
-                    class="lg:w-96 h-[35rem] w-[30rem] bg-gray-200 rounded-2xl flex flex-col items-center pt-12 px-8 text-surface-900 relative"
+                    class="lg:w-96 mx-6 md:mx-0 h-[35rem] w-96 md:w-[30rem] bg-gray-200 rounded-2xl flex flex-col items-center pt-12 px-8 text-surface-900 relative"
             >
 
 <!--                <div class="absolute w-full h-full bg-gray-200"></div>-->
