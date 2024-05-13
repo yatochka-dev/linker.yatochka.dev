@@ -63,9 +63,9 @@
 </script>
 
 
-<div class="flex flex-row h-full w-full items-center pb-32 mx-auto max-w-screen-xl gap-20">
+<div class="flex pt-36 flex-col px-10 lg:pt-0 lg:flex-row h-full w-full items-center pb-32 mx-auto max-w-screen-xl gap-20">
     <div class="flex flex-col gap-4 container max-w-screen-sm">
-        <h1 class="h1">
+        <h1 class="h2 lg:h1">
             Simple, beautiful, and free link management
         </h1>
         <h6 class="h6">
@@ -87,7 +87,7 @@
             <div
 
                     use:motion
-                    class="w-96 h-[35rem] bg-gray-200 rounded-2xl flex flex-col items-center pt-12 px-8 text-surface-900 relative"
+                    class="lg:w-96 h-[35rem] w-[30rem] bg-gray-200 rounded-2xl flex flex-col items-center pt-12 px-8 text-surface-900 relative"
             >
 
 <!--                <div class="absolute w-full h-full bg-gray-200"></div>-->
@@ -101,7 +101,7 @@
                     </div>
                 </Motion>
 
-                <h3 class="h3 mt-2">
+                <h3 class="h3 mt-4">
                     {#each examplePageTitle as w}
                         <Motion let:motion variants={titleItemConfig}>
                         <span
