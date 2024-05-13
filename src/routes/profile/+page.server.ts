@@ -49,19 +49,13 @@
 
 import type { PageServerLoad } from './$types';
 import { prisma } from '$lib/server/prisma';
+import {redirect} from "@sveltejs/kit";
 
 // export const config = {}
 
 export const load: PageServerLoad = async (event) => {
 	const session = await event.locals.auth();
-	if (!session?.user) {
-		return {
-			status: 303,
-			headers: {
-				location: '/auth/signin'
-			}
-		};
-	}
+	if (!session?.user) throw redirect(303, '/auth/signin');
 
 	const user = await prisma.user.findUnique({
 		where: {
