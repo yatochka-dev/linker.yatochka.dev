@@ -11,6 +11,7 @@
     import javascript from 'highlight.js/lib/languages/javascript';
     import typescript from 'highlight.js/lib/languages/typescript';
     import LoadingText from '$lib/components/loading-text.svelte';
+    import {base} from "$app/paths";
 
     hljs.registerLanguage('xml', xml); // for HTML
     hljs.registerLanguage('css', css);
@@ -40,7 +41,7 @@
 
     <meta property="og:description"
           content="Linker is a simple and easy to use app that allows you to create your own custom link pages."/>
-    <meta property="og:image" content="%sveltekit.assets%/landing.png"/>
+    <meta property="og:image" content="{base}/landing.png"/>
 </svelte:head>
 
 <!-- App Shell -->
