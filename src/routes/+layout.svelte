@@ -41,7 +41,7 @@
 
     <meta property="og:description"
           content="Linker is a simple and easy to use app that allows you to create your own custom link pages."/>
-    <meta property="og:image" content="{base}/landing.png"/>
+    <meta property="og:image" content="https://linker-yatochka-dev.vercel.app/landing.png"/>
 </svelte:head>
 
 <!-- App Shell -->
