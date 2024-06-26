@@ -21,6 +21,7 @@
 		document.body.style.backgroundImage = design.backgroundColor;
 		return () => {
 			document.body.style.backgroundColor = '';
+			document.body.style.backgroundImage = '';
 		};
 	});
 </script>
