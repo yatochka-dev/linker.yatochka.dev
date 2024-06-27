@@ -9,7 +9,7 @@
 </div>
 
 <div class="text-center flex flex-col gap-4 items-center justify-center h-full pb-36">
-	<h1 class="text-3xl">You profile</h1>
+	<h1 class="text-3xl">Your profile</h1>
 	<div class="text-left flex flex-row justify-between gap-4 px-4 mb-2">
 		Edit your page by clicking these two buttons!
 	</div>
