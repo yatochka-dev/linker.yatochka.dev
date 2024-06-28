@@ -8,6 +8,7 @@ const { GET, POST } = createRouteHandler({
   router: ourFileRouter,
   config: {
     uploadthingSecret: env.UPLOADTHING_SECRET,
+    logLevel: "debug",
   },
 });
 
