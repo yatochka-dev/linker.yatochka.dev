@@ -17,6 +17,9 @@ dependencies:
   '@prisma/client':
     specifier: ^5.13.0
     version: 5.13.0(prisma@5.13.0)
+  '@tanstack/svelte-query':
+    specifier: ^5.48.0
+    version: 5.48.0(svelte@4.2.16)
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
@@ -841,6 +844,19 @@ packages:
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.3
     dev: true
+
+  /@tanstack/query-core@5.48.0:
+    resolution: {integrity: sha512-lZAfPPeVIqXCswE9SSbG33B6/91XOWt/Iq41bFeWb/mnHwQSIfFRbkS4bfs+WhIk9abRArF9Id2fp0Mgo+hq6Q==}
+    dev: false
+
+  /@tanstack/svelte-query@5.48.0(svelte@4.2.16):
+    resolution: {integrity: sha512-0XzCAsmls0hmr6dijDiALJxuUpo4IlDZ00sML3Q1h2n/DFm5i6HdZ4Tzn52OurJ7/hqoOF+pzxv1XDpNsCjW6w==}
+    peerDependencies:
+      svelte: ^3.54.0 || ^4.0.0 || ^5.0.0-next.0
+    dependencies:
+      '@tanstack/query-core': 5.48.0
+      svelte: 4.2.16
+    dev: false
 
   /@types/cookie@0.6.0:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}

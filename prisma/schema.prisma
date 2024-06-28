@@ -94,14 +94,18 @@ model User {
 }
 
 model Link {
-  id        String   @id @default(cuid()) @map("_id")
-  url       String
-  label     String
+  id  String @id @default(cuid()) @map("_id")
+  url String
+
+  label String
+  type  LinkType @default(CUSTOM)
+  order Int
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  type      LinkType @default(CUSTOM)
-  userId    String   @map("_userId")
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  userId String @map("_userId")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 enum LinkType {

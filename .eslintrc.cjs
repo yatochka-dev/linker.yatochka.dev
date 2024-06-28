@@ -2,7 +2,7 @@
 module.exports = {
 	root: true,
 	rules: {
-		'no-unused-vars': 'off',
+		'no-unused-vars': ["warn"],
 		// imports
 		'import/no-unresolved': 'off',
 		'import/no-mutable-exports': 'off',

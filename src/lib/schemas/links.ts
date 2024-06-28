@@ -18,4 +18,8 @@ const deleteLinkSchema = z.object({
 	id: z.string()
 });
 
-export { addLinkSchema, updateLinkSchema, deleteLinkSchema };
+const moveLinkSchema = z.object({
+	id: z.string(),
+})
+
+export { addLinkSchema, updateLinkSchema, deleteLinkSchema, moveLinkSchema };
