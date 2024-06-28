@@ -4,8 +4,9 @@ import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import { myCustomTheme } from './src/theme';
+import { withUt } from "uploadthing/tw";
 
-export default {
+export default withUt({
 	darkMode: 'media',
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
@@ -27,4 +28,4 @@ export default {
 			}
 		})
 	]
-} satisfies Config;
+} satisfies Config);
