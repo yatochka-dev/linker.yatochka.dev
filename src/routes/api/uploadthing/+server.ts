@@ -12,15 +12,5 @@ const { GET, POST } = createRouteHandler({
   },
 });
 
-const p = async (request: Request) => {
 
-  console.log(request.url);
-  console.log(request.method);
-  console.log(request.headers);
-  const body = request.body;
-  console.log(body);
-
-  return await POST(request);
-}
-
-export { GET, p as POST };
+export { GET, POST };
