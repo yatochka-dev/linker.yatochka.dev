@@ -20,7 +20,7 @@ const p = async (request: Request) => {
   const body = request.body;
   console.log(body);
 
-  await POST(request);
+  return await POST(request);
 }
 
 export { GET, p as POST };
