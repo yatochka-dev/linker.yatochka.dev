@@ -182,7 +182,7 @@
             <button
                     class="btn variant-filled-primary w-full"
                     type="submit"
-                    disabled={!isValid || validating}
+                    disabled={!isValid || validating || uploading}
             >Submit
             </button>
         </div>
