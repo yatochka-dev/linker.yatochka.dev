@@ -17,7 +17,7 @@ const p = async (request: Request) => {
   console.log(request.url);
   console.log(request.method);
   console.log(request.headers);
-  const body = await request.text();
+  const body = request.body;
   console.log(body);
 
   await POST(request);
