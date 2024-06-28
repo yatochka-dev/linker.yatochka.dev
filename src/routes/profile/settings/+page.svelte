@@ -58,17 +58,13 @@
 
 
     let avatar: string = data.user.image;
-    let uploading = false;
     import {createUploadThing} from "$lib/utils/uploadthing";
 
     const {
-        startUpload
+        startUpload,
+        isUploading: uploading
     } = createUploadThing("imageUploader", {
-        onUploadBegin: () => {
-            uploading = true;
-        },
         onClientUploadComplete: (res) => {
-            uploading = false;
             avatar = res[0].url;
             alert(
                 "You successfully updated your avatar! (no need to save, it's saved automatically)"
@@ -76,7 +72,6 @@
         },
         onUploadError: (error: Error) => {
             alert(`ERROR! ${error.message}`);
-            uploading = false;
         },
     });
 
