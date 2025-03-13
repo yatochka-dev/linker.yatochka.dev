@@ -141,9 +141,9 @@
                         <Motion let:motion
                                 variants={buttonItemsConfig}
                         >
-                            <button class="btn variant-filled-surface" use:motion>
+                            <div class="btn variant-filled-surface" use:motion>
                                 {button}
-                            </button>
+                            </div>
                         </Motion>
                     {/each}
                 </div>
